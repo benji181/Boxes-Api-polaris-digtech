@@ -159,6 +159,25 @@ Response:
 3. **State Management**: Boxes follow the state flow: IDLE → LOADING → LOADED → DELIVERING → DELIVERED → RETURNING
 4. **Validation**: All inputs are validated according to the specified constraints
 
+
+## 🧩 Assumptions & Design Choices
+
+Each box is uniquely identified using a transaction reference (txref).
+
+A box cannot be loaded if its battery is below 25%, to prevent delivery failures.
+
+A box cannot exceed its weight limit when loading items.
+
+Items must have a unique code per box to avoid duplicates.
+
+Box lifecycle is modeled as:
+IDLE → LOADING → LOADED → DELIVERING → DELIVERED → RETURNING.
+
+For persistence, an in-memory H2 database is used for simplicity. In production, this could be replaced with MySQL/PostgreSQL.
+
+Error handling returns clear validation messages instead of generic errors.
+
+
 ## Sample Data
 
 The application preloads sample boxes on startup:
@@ -238,7 +257,7 @@ A Spring Boot REST API service for managing delivery boxes and their items. This
    mvn spring-boot:run
    \`\`\`
 
-2. The API will be available at: `http://localhost:8080`
+2. The API will be available at: `http://localhost:8081`
 
 3. H2 Console (for database inspection): `http://localhost:8080/h2-console`
     - JDBC URL: `jdbc:h2:mem:testdb`
@@ -408,4 +427,4 @@ The project includes unit tests for the service layer covering:
 - Maven
   \`\`\`
 
-This comprehensive Spring Boot application provides all the requested functionality with proper validation, error handling, and a clean architecture. The service includes sample data, unit tests, and detailed documentation for easy setup and usage.
+a comprehensive Spring Boot application provides all the requested functionality with proper validation, error handling, and a clean architecture. The service includes sample data, unit tests, and detailed documentation for easy setup and usage.
