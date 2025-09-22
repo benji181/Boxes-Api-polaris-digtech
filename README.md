@@ -33,9 +33,9 @@ A Spring Boot REST API service for managing delivery boxes and their items. This
    mvn spring-boot:run
    \`\`\`
 
-2. The API will be available at: `http://localhost:8080`
+2. The API will be available at: `http://localhost:8081`
 
-3. H2 Console (for database inspection): `http://localhost:8080/h2-console`
+3. H2 Console (for database inspection): `http://localhost:8081/h2-console`
     - JDBC URL: `jdbc:h2:mem:testdb`
     - Username: `sa`
     - Password: (leave empty)
@@ -259,7 +259,7 @@ A Spring Boot REST API service for managing delivery boxes and their items. This
 
 2. The API will be available at: `http://localhost:8081`
 
-3. H2 Console (for database inspection): `http://localhost:8080/h2-console`
+3. H2 Console (for database inspection): `http://localhost:8081/h2-console`
     - JDBC URL: `jdbc:h2:mem:testdb`
     - Username: `sa`
     - Password: (leave empty)
